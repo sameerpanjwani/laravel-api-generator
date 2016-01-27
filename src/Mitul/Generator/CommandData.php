@@ -21,6 +21,14 @@ class CommandData
     public $skipMigration;
     public $inputFields;
 
+    public $main_table_id;
+    public $main_module;
+    public $sub_module;
+    public $module_name;
+    public $model_primary_key;
+    public $layout_name;
+
+
     /** @var  string */
     public $commandType;
 
@@ -68,9 +76,12 @@ class CommandData
         $this->initDynamicVariables();
     }
 
+
     public function getInputFields()
     {
         $fields = [];
+
+
 
         $this->commandObj->info('Specify fields for the model (skip id & timestamp fields, will be added automatically)');
         $this->commandObj->info('Enter exit to finish');

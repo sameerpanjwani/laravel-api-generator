@@ -1,14 +1,44 @@
-@extends('layouts.app')
+@extends('layouts.$LAYOUT_NAME$')
 
 @section('content')
-<div class="container">
 
-    @include('common.errors')
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary pull-right" style="margin-top: 25px"
+               href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.index') !!}">Back to all Records</a>
+        </div>
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject font-blue-steel bold uppercase">Create / Add Record</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="form_content margin-bottom-10 no-border">
+                        @include('common.errors')
 
-    {!! Form::open(['route' => '$MODEL_NAME_PLURAL_CAMEL$.store']) !!}
 
-        @include('$MODEL_NAME_PLURAL_CAMEL$.fields')
 
-    {!! Form::close() !!}
-</div>
+                        {!! Form::autoOpen([
+'name' => '$MODEL_NAME_PLURAL_CAMEL$_form',
+'id' => '$MODEL_NAME_PLURAL_CAMEL$_form',
+'route' => '$MODEL_NAME_PLURAL_CAMEL$.store',
+'method' => 'POST',
+'data-ajax-validation' => '1',
+'data-ajax-submit' => '1',
+'onreset'=> 'clearUserForm(this)'
+]) !!}
+
+
+                        @include('$MODEL_NAME_PLURAL_CAMEL$.fields')
+
+                        {!! Form::autoClose() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 @endsection

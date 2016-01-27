@@ -23,7 +23,7 @@ class ViewGenerator implements GeneratorProvider
     public function __construct($commandData)
     {
         $this->commandData = $commandData;
-        $this->path = Config::get('generator.path_views', base_path('resources/views')).'/pages/'.$this->commandData->layout_name."/".$this->commandData->main_module."/".$this->commandData->sub_module."/".$this->commandData->modelNamePluralCamel.'/';
+        $this->path = Config::get('generator.path_views', base_path('resources/views')).'/pages/'.$this->commandData->layout_name."/".$this->commandData->modelNamePluralCamel.'/';
         $this->viewsPath = 'scaffold/views';
     }
 

@@ -40,7 +40,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
 
     		$result = array_merge($this->view, $view);
 
-    		return view('$MODEL_NAME_PLURAL_CAMEL$',$result);
+    		return view('pages.$LAYOUT_NAME$.$MODEL_NAME_PLURAL_CAMEL$.index',$result);
     	}
 
     	/**
@@ -52,7 +52,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
     	{
     		$view = $this->display_service->getViewData();
     		$results = array_merge($this->view, $view);
-    		return view('$MODEL_NAME_PLURAL_CAMEL$.create',$results);
+    		return view('pages.$LAYOUT_NAME$.$MODEL_NAME_PLURAL_CAMEL$.create',$results);
     	}
 
     	/**
@@ -99,7 +99,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
     		$results = array_merge($this->view, $view);
     		$view['$MODEL_NAME_CAMEL$']=$$MODEL_NAME_CAMEL$;
     		$results_final = array_merge($results, $view);
-    		return view('$MODEL_NAME_CAMEL$.show', $results_final);
+    		return view('pages.$LAYOUT_NAME$.$MODEL_NAME_CAMEL$.show', $results_final);
     	}
 
     	/**
@@ -128,7 +128,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
 
 
 
-    		return view('$MODEL_NAME_CAMEL$.edit', $results_final);
+    		return view('pages.$LAYOUT_NAME$.$MODEL_NAME_CAMEL$.edit', $results_final);
     	}
 
     	/**

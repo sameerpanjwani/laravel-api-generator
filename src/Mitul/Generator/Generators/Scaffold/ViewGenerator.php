@@ -81,6 +81,9 @@ class ViewGenerator implements GeneratorProvider
                 case 'select':
                     $fieldsStr .= FormFieldsGenerator::select($fieldTemplate, $field)."\n\n";
                     break;
+                default:
+                    $fieldsStr .= FormFieldsGenerator::text($fieldTemplate, $field)."\n\n";
+                    break;
             }
         }
 

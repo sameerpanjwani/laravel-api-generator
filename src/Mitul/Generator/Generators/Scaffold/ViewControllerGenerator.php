@@ -35,6 +35,10 @@ class ViewControllerGenerator implements GeneratorProvider
 
         $fileName = $this->commandData->modelName.'Controller.php';
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
+
         $path = $this->path.$fileName;
 
         $this->commandData->fileHelper->writeFile($path, $templateData);

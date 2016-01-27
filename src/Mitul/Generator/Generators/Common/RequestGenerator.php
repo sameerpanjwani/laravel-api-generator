@@ -35,6 +35,10 @@ class RequestGenerator implements GeneratorProvider
 
         $fileName = 'Create'.$this->commandData->modelName.'Request.php';
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
+
         $path = $this->path.$fileName;
 
         $this->commandData->fileHelper->writeFile($path, $templateData);
@@ -49,6 +53,10 @@ class RequestGenerator implements GeneratorProvider
         $templateData = GeneratorUtils::fillTemplate($this->commandData->dynamicVars, $templateData);
 
         $fileName = 'Update'.$this->commandData->modelName.'Request.php';
+
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
 
         $path = $this->path.$fileName;
 

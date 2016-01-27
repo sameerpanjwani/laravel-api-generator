@@ -32,6 +32,10 @@ class MigrationGenerator implements GeneratorProvider
 
         $fileName = date('Y_m_d_His').'_'.'create_'.$this->commandData->modelNamePluralCamel.'_table.php';
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
+
         $path = $this->path.$fileName;
 
         $this->commandData->fileHelper->writeFile($path, $templateData);

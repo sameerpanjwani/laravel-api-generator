@@ -88,6 +88,9 @@ class ViewGenerator implements GeneratorProvider
 
         $templateData = str_replace('$FIELDS$', $fieldsStr, $templateData);
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
         $fileName = 'fields.blade.php';
 
         $path = $this->path.$fileName;
@@ -108,6 +111,10 @@ class ViewGenerator implements GeneratorProvider
             $singleFieldStr = GeneratorUtils::fillTemplate($this->commandData->dynamicVars, $singleFieldStr);
 
             $fieldsStr .= $singleFieldStr."\n\n";
+        }
+
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
         }
 
         $fileName = 'show_fields.blade.php';
@@ -132,6 +139,9 @@ class ViewGenerator implements GeneratorProvider
             $templateData = str_replace('$PAGINATE$', $paginateTemplate, $templateData);
         } else {
             $templateData = str_replace('$PAGINATE$', '', $templateData);
+        }
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
         }
 
         $fileName = 'index.blade.php';
@@ -170,6 +180,9 @@ class ViewGenerator implements GeneratorProvider
 
         $templateData = str_replace('$FIELD_BODY$', $tableBodyFields, $templateData);
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
         $path = $this->path.$fileName;
 
         $this->commandData->fileHelper->writeFile($path, $templateData);
@@ -183,6 +196,10 @@ class ViewGenerator implements GeneratorProvider
         $templateData = GeneratorUtils::fillTemplate($this->commandData->dynamicVars, $templateData);
 
         $fileName = 'show.blade.php';
+
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
 
         $path = $this->path.$fileName;
 
@@ -198,6 +215,10 @@ class ViewGenerator implements GeneratorProvider
 
         $fileName = 'create.blade.php';
 
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
+
         $path = $this->path.$fileName;
 
         $this->commandData->fileHelper->writeFile($path, $templateData);
@@ -211,6 +232,10 @@ class ViewGenerator implements GeneratorProvider
         $templateData = GeneratorUtils::fillTemplate($this->commandData->dynamicVars, $templateData);
 
         $fileName = 'edit.blade.php';
+
+        if (!file_exists($this->path)) {
+            mkdir($this->path, 0755, true);
+        }
 
         $path = $this->path.$fileName;
 

@@ -24,7 +24,12 @@ class RoutesGenerator implements GeneratorProvider
     public function __construct($commandData)
     {
         $this->commandData = $commandData;
-        $this->path = Config::get('generator.path_routes', app_path('Http/routes.php'));
+        if($this->commandData->layout_name!=""){
+            $this->path = $this->commandData->layout_name.".".Config::get('generator.path_routes', app_path('Http/routes.php'));
+        } else {
+            $this->path = Config::get('generator.path_routes', app_path('Http/routes.php'));
+        }
+
         $this->apiPath = Config::get('generator.path_api_routes', app_path('Http/api_routes.php'));
         $this->useDingo = Config::get('generator.use_dingo_api', false);
     }

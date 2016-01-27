@@ -45,7 +45,7 @@ class BaseCommand extends Command
             $this->commandData->model_primary_key = $this->ask("Please specify the primary key field name for the table");
         }
         if($this->commandData->main_table_id==""){
-            $this->commandData->main_table_id = $this->ask("Please specify an ID for the HTML table.");
+            $this->commandData->main_table_id = $this->commandData->tableName;
         }
 
         if($this->commandData->main_module==""){

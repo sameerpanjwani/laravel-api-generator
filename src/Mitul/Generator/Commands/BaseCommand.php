@@ -38,8 +38,8 @@ class BaseCommand extends Command
         $this->commandData->model_primary_key = $this->option('primaryKey');
         $this->commandData->layout_name = $this->option('layoutName');
 
-        if($this->commandData->fromTable==""){
-            $this->commandData->fromTable = $this->ask("Please specify the table name");
+        if($this->commandData->tableName==""){
+            $this->commandData->tableName = $this->ask("Please specify the table name");
         }
         if($this->commandData->model_primary_key==""){
             $this->commandData->model_primary_key = $this->ask("Please specify the primary key field name for the table");

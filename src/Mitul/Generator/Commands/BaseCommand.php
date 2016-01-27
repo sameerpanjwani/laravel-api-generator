@@ -49,11 +49,11 @@ class BaseCommand extends Command
         }
 
         if($this->commandData->main_module==""){
-            $this->commandData->main_module = $this->ask("Please specify the main module name - do not use whitespaces, use hyphen as a separator.");
+            $this->commandData->main_module = $this->ask("Please specify the main module name in lower case separated by hypen - do not use whitespaces, e.g. bulk-metrics");
         }
 
         if($this->commandData->sub_module==""){
-            $this->commandData->sub_module = $this->ask("Please specify the sub module name - do not use whitespaces, use hyphen as a separator.");
+            $this->commandData->sub_module = $this->ask("Please specify the sub module name - do not use whitespaces, use hyphen as a separator, e.g. bulk-metrics-comparison");
         }
 
         if($this->commandData->layout_name==""){

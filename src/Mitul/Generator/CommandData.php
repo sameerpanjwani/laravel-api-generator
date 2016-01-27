@@ -76,6 +76,7 @@ class CommandData
         $this->initDynamicVariables();
     }
 
+
     public function getInputFields()
     {
         $fields = [];

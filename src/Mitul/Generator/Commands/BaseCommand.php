@@ -38,6 +38,7 @@ class BaseCommand extends Command
         $this->commandData->model_primary_key = $this->option('primaryKey');
         $this->commandData->layout_name = $this->option('layoutName');
 
+
         if ($this->commandData->fromTable) {
             if (!$this->commandData->tableName) {
                 $this->error('tableName required with fromTable option.');

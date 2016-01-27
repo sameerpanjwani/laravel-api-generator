@@ -86,6 +86,8 @@ class BaseCommand extends Command
         $this->commandData->addDynamicVariable('$MODULE_NAME', $this->commandData->module_name);
         $this->commandData->addDynamicVariable('$MODEL_PRIMARY_KEY$', $this->commandData->model_primary_key);
         $this->commandData->addDynamicVariable('$LAYOUT_NAME$', $this->commandData->layout_name);
+        $this->commandData->addDynamicVariable('$NAMESPACE_CONTRACT$', "App\Contracts\Services\\".ucwords($this->commandData->layout_name)."\\".$this->commandData->modelName);
+
 
         if ($this->commandData->fieldsFile) {
             $fileHelper = new FileHelper();

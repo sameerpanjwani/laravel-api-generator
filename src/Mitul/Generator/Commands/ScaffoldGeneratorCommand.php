@@ -72,6 +72,11 @@ class ScaffoldGeneratorCommand extends BaseCommand
         if ($this->confirm("\nDo you want to migrate database? [y|N]", false)) {
             $this->call('migrate');
         }
+
+        $display_service_creation = $this->ask("Would you like to create a display service as well for ".$this->commandData->modelName."DisplayService? (recommended) [yes/no]");
+        if(strtolower($display_service_creation=="yes")){
+            $this->call("display-service");
+        }
     }
 
     /**

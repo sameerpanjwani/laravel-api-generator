@@ -39,7 +39,7 @@ class BaseCommand extends Command
         $this->commandData->layout_name = $this->option('layoutName');
 
         if($this->commandData->tableName==""){
-            $this->commandData->tableName = $this->ask("Please specify the table name");
+            $this->commandData->tableName = $this->ask("Please specify the mysql table name without any prefix");
         }
         if($this->commandData->model_primary_key==""){
             $this->commandData->model_primary_key = $this->ask("Please specify the primary key field name for the table");
@@ -49,23 +49,16 @@ class BaseCommand extends Command
         }
 
         if($this->commandData->main_module==""){
-            $this->commandData->main_module = $this->ask("Please specify the main module name in lower case separated by hypen - do not use whitespaces, e.g. bulk-metrics");
+            $this->commandData->main_module = $this->ask("Please specify the main module name in lower case separated by hypen - do not use whitespaces, e.g. bulk-metrics (used for sidebar menu)");
         }
 
         if($this->commandData->sub_module==""){
-            $this->commandData->sub_module = $this->ask("Please specify the sub module name - do not use whitespaces, use hyphen as a separator, e.g. bulk-metrics-comparison");
+            $this->commandData->sub_module = $this->ask("Please specify the sub module name - do not use whitespaces, use hyphen as a separator, e.g. bulk-metrics-comparison (used for sidebar menu)");
         }
 
         if($this->commandData->layout_name==""){
             $this->commandData->layout_name = $this->ask("Please specify whether you want to use the app layout or the  baf layout or any other. Example, type app for app layout");
         }
-
-
-
-
-
-
-
 
         if ($this->commandData->fromTable) {
             if (!$this->commandData->tableName) {

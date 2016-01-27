@@ -17,6 +17,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
 
 	function __construct($MODEL_NAME$Repository $$MODEL_NAME_CAMEL$Repo,$MODEL_NAME$DisplayServiceInterface $$MODEL_NAME_CAMEL$DisplayService)
 	{
+	    parent::__construct();
 		$this->$MODEL_NAME_CAMEL$Repository = $$MODEL_NAME_CAMEL$Repo;
 		$this->display_service = $$MODEL_NAME_CAMEL$DisplayService;
 		$this->view['module_details']['main_module'] = '$MAIN_MODULE$';
@@ -26,7 +27,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
       	$this->view['chart_data'] = "no";
       	$this->view['chart_remove'] = "no";
       	$this->view['pdf_view'] = 'no';
-      	$this->view['current_page_url'] = route(''$MODEL_NAME_PLURAL_CAMEL$.index');
+      	$this->view['current_page_url'] = route('$MODEL_NAME_PLURAL_CAMEL$.index');
 	}
 	/**
     	 * Display a listing of the $MODEL_NAME$.

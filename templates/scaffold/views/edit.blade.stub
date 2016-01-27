@@ -1,14 +1,44 @@
-@extends('layouts.app')
+@extends('layouts.$LAYOUT_NAME$')
 
 @section('content')
-<div class="container">
+ <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary pull-right" style="margin-top: 25px"
+               href="{!! route('$MODEL_NAME_CAMEL$.index') !!}">Back to all Records</a>
+        </div>
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject font-blue-steel bold uppercase">Update Record</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="form_content margin-bottom-10 no-border">
+                        @include('common.errors')
 
-    @include('common.errors')
 
-    {!! Form::model($$MODEL_NAME_CAMEL$, ['route' => ['$MODEL_NAME_PLURAL_CAMEL$.update', $$MODEL_NAME_CAMEL$->id], 'method' => 'patch']) !!}
+                        {!! Form::setModel($$MODEL_NAME_PLURAL_CAMEL$) !!}
+
+                        {!! Form::autoOpen([
+'name' => '$MODEL_NAME_PLURAL_CAMEL$_edit',
+'id' => '$MODEL_NAME_PLURAL_CAMEL$_edit',
+'route' => ['$MODEL_NAME_CAMEL$.update', $$MODEL_NAME_CAMEL$->$MODEL_PRIMARY_KEY$],
+'method' => 'patch',
+'data-ajax-validation' => '1',
+'data-ajax-submit' => '1',
+'onreset'=> 'clearUserForm(this)'
+]) !!}
+
+
 
         @include('$MODEL_NAME_PLURAL_CAMEL$.fields')
 
-    {!! Form::close() !!}
-</div>
+                        {!! Form::autoClose() !!}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 @endsection

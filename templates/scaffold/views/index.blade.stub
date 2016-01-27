@@ -2,24 +2,40 @@
 
 @section('content')
 
-    <div class="container">
 
-        @include('flash::message')
+    <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title margin-bottom-20">
+                    {!!trans($lang_path.'.heading')!!}
+                </h1>
+            </div>
 
-        <div class="row">
-            <h1 class="pull-left">$MODEL_NAME_PLURAL$</h1>
-            <a class="btn btn-primary pull-right" style="margin-top: 25px" href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.create') !!}">Add New</a>
-        </div>
+            <div class="col-md-12">
 
-        <div class="row">
-            @if($$MODEL_NAME_PLURAL_CAMEL$->isEmpty())
-                <div class="well text-center">No $MODEL_NAME_PLURAL$ found.</div>
-            @else
-                @include('$MODEL_NAME_PLURAL_CAMEL$.table')
-            @endif
-        </div>
+                @include('flash::message')
 
-        $PAGINATE$
+                <div class="portlet light ">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <span class="caption-subject font-blue-steel bold uppercase">{!!trans($lang_path.'.list_of_categories')!!}</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
 
-    </div>
+                        <a class="btn btn-primary pull-right" style="margin-top: 25px"
+                           href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.create') !!}">Add New</a>
+
+                        @include('$MODEL_NAME_PLURAL_CAMEL$.table')
+                    </div>
+                </div>
+
+
+
+            </div>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    <?=$MAIN_TABLE_ID$_js;?>
+
+                });
+            </script>
 @endsection

@@ -31,6 +31,13 @@ class BaseCommand extends Command
         $this->commandData->fromTable = $this->option('fromTable');
         $this->commandData->rememberToken = $this->option('rememberToken');
 
+        $this->commandData->main_table_id = $this->option('mainTableId');
+        $this->commandData->main_module = $this->option('mainModuleName');
+        $this->commandData->sub_module = $this->option('subModuleName');
+        $this->commandData->module_name = ucwords(str_replace("-", " ", $this->commandData->main_module));
+        $this->commandData->model_primary_key = $this->option('primaryKey');
+        $this->commandData->layout_name = $this->option('layoutName');
+
         if ($this->commandData->fromTable) {
             if (!$this->commandData->tableName) {
                 $this->error('tableName required with fromTable option.');
@@ -44,6 +51,12 @@ class BaseCommand extends Command
 
         $this->commandData->initVariables();
         $this->commandData->addDynamicVariable('$NAMESPACE_APP$', $this->getLaravel()->getNamespace());
+        $this->commandData->addDynamicVariable('$MAIN_TABLE_ID$', $this->commandData->main_table_id);
+        $this->commandData->addDynamicVariable('$MAIN_MODULE$', $this->commandData->main_module);
+        $this->commandData->addDynamicVariable('$SUB_MODULE', $this->commandData->sub_module);
+        $this->commandData->addDynamicVariable('$MODULE_NAME', $this->commandData->module_name);
+        $this->commandData->addDynamicVariable('$MODEL_PRIMARY_KEY$', $this->commandData->model_primary_key);
+        $this->commandData->addDynamicVariable('$LAYOUT_NAME$', $this->commandData->layout_name);
 
         if ($this->commandData->fieldsFile) {
             $fileHelper = new FileHelper();
@@ -102,6 +115,12 @@ class BaseCommand extends Command
             ['skipMigration', null, InputOption::VALUE_NONE, 'Skip Migration generation'],
             ['fromTable', null, InputOption::VALUE_NONE, 'Generate from table'],
             ['rememberToken', null, InputOption::VALUE_NONE, 'Generate rememberToken field in migration'],
+            ['mainTableId', null, InputOption::VALUE_REQUIRED, 'Define an ID for the HTML table'],
+            ['mainModuleName', null, InputOption::VALUE_REQUIRED, 'Module Name'],
+            ['subModuleName', null, InputOption::VALUE_REQUIRED, 'Sub-module Name'],
+            ['primaryKey', null, InputOption::VALUE_REQUIRED, 'Primary Key Field Name'],
+            ['layoutName', null, InputOption::VALUE_REQUIRED, 'Layout name: app or baf or anything else']
+
         ];
     }
 }

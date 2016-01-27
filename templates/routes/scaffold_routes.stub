@@ -5,4 +5,4 @@ Route::get('$MODEL_NAME_PLURAL_CAMEL$/{id}/delete', [
     'uses' => '$MODEL_NAME$Controller@destroy',
 ]);
 
-Route::post('ajax/$MODEL_NAME_PLURAL_CAMEL$/ajaxMainCrudTable', ['as'=>'ajax-$SUB_MODULE$', 'uses'=>'$MODEL_NAME$Controller@ajaxMainCrudTable']);
+Route::post('ajax/$MODEL_NAME_PLURAL_CAMEL$/ajaxMainCrudTable', ['as'=>'ajax$MODEL_NAME$', 'uses'=>'$MODEL_NAME$Controller@ajaxMainCrudTable']);

@@ -114,6 +114,11 @@ class CommandData
     {
         $this->dynamicVars = self::getConfigDynamicVariables();
 
+        if($this->layout_name!=""){
+            $this->dynamicVars['$NAMESPACE_MODEL$']=$this->dynamicVars['$NAMESPACE_MODEL$']."\\".$this->layout_name;
+            $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->layout_name;
+        }
+
         $this->dynamicVars = array_merge($this->dynamicVars, [
             '$MODEL_NAME$'              => $this->modelName,
 

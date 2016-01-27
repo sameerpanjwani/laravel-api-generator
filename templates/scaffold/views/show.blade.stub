@@ -17,7 +17,7 @@
                 <div class="portlet-body">
 
                     <div class="form_content margin-bottom-10 no-border">
-                        @include('$MODEL_NAME_PLURAL_CAMEL$.show_fields')
+                        @include('pages.$LAYOUT_NAME$.$MODEL_NAME_PLURAL_CAMEL$.show_fields')
 
                     </div>
 

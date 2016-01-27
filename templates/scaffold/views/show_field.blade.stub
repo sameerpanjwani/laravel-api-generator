@@ -1,5 +1,7 @@
 <!-- $FIELD_NAME_TITLE$ Field -->
-<div class="form-group">
+<div class="col-md-12">
+<div class="{{ APP_FORM_LEFT_CONTAINER }}">
     {!! Form::label('$FIELD_NAME$', '$FIELD_NAME_TITLE$:') !!}
-    <p>{!! $$MODEL_NAME_CAMEL$->$FIELD_NAME$ !!}</p>
+</div>
+    <div class="{{ APP_FORM_RIGHT_CONTAINER }}"><span class="label_text">{!! $$MODEL_NAME_CAMEL$->$FIELD_NAME$ !!}</span></div>
 </div>

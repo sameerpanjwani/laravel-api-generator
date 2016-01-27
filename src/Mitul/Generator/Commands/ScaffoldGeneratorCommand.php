@@ -46,6 +46,8 @@ class ScaffoldGeneratorCommand extends BaseCommand
     {
         parent::handle();
 
+
+
         if (!$this->commandData->skipMigration and !$this->commandData->fromTable) {
             $migrationGenerator = new MigrationGenerator($this->commandData);
             $migrationGenerator->generate();

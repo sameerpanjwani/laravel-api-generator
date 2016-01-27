@@ -1,5 +1,17 @@
 $FIELDS$
+
 <!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-</div>
+<div class="clearfix"></div>
+{!! Form::autoFormActionsRow(
+'query_qenerator_submit',
+'baf/assist-task-categories',
+[
+'submit_info' => [
+'type' => 'submit'
+],
+'cancel_info' => [
+'type'=>"reset"
+
+]
+]
+) !!}

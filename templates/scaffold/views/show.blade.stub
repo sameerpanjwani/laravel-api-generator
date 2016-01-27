@@ -1,7 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-	 @include('$MODEL_NAME_PLURAL_CAMEL$.show_fields')
-</div>
+
+<div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-primary pull-right" style="margin-top: 25px"
+               href="{!! route('$MODEL_NAME_PLURAL_CAMEL$.index') !!}">Back to all Records</a>
+        </div>
+        <div class="col-md-12">
+            <div class="portlet light ">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span class="caption-subject font-blue-steel bold uppercase">Record Details</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+
+                    <div class="form_content margin-bottom-10 no-border">
+                        @include('$MODEL_NAME_PLURAL_CAMEL$.show_fields')
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
 @endsection

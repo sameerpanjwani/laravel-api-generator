@@ -31,7 +31,7 @@
 ]) !!}
 
 
-                        @include('$MODEL_NAME_PLURAL_CAMEL$.fields')
+                        @include('pages.$LAYOUT_NAME$.$MODEL_NAME_PLURAL_CAMEL$.fields')
 
                         {!! Form::autoClose() !!}
                     </div>

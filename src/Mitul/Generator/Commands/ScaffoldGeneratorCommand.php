@@ -75,7 +75,15 @@ class ScaffoldGeneratorCommand extends BaseCommand
 
         $display_service_creation = $this->ask("Would you like to create a display service as well for ".$this->commandData->modelName."DisplayService? (recommended) [yes/no]");
         if(strtolower($display_service_creation=="yes")){
-            $this->call("make:display-service");
+
+            if($this->commandData->layout_name=="baf"){
+                $append = "Baf\\";
+            } else {
+
+                $append= "";
+            }
+            $this->call("make:display-service",['name'=>$append.$this->commandData->folder_name."\\".$this->commandData->modelName,'--main_table_id='.$this->commandData->main_table_id,'--primary_key_field_name='.$this->commandData->model_primary_key]);
+
         }
     }
 

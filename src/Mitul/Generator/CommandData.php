@@ -27,6 +27,7 @@ class CommandData
     public $module_name;
     public $model_primary_key;
     public $layout_name;
+    public $folder_name;
 
 
     /** @var  string */
@@ -115,9 +116,10 @@ class CommandData
         $this->dynamicVars = self::getConfigDynamicVariables();
 
         if($this->layout_name!=""){
-            $this->dynamicVars['$NAMESPACE_MODEL$']=$this->dynamicVars['$NAMESPACE_MODEL$']."\\".$this->layout_name;
-            $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->layout_name;
-            $this->dynamicVars['$NAMESPACE_REQUEST$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->layout_name;
+            $this->dynamicVars['$NAMESPACE_MODEL$']=$this->dynamicVars['$NAMESPACE_MODEL$']."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_REQUEST$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_CONTRACT$']=$this->dynamicVars['$NAMESPACE_CONTRACT$']."\\".$this->folder_name;
 
         }
 

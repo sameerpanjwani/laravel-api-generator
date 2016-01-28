@@ -37,6 +37,7 @@ class BaseCommand extends Command
         $this->commandData->module_name = ucwords(str_replace("-", " ", $this->commandData->main_module));
         $this->commandData->model_primary_key = $this->option('primaryKey');
         $this->commandData->layout_name = $this->option('layoutName');
+        $this->commandData->folder_name = $this->option('folderName');
 
         if($this->commandData->tableName==""){
             $this->commandData->tableName = $this->ask("Please specify the mysql table name without any prefix");
@@ -48,6 +49,14 @@ class BaseCommand extends Command
             $this->commandData->main_table_id = $this->commandData->tableName;
         }
 
+        if($this->commandData->layout_name==""){
+            $this->commandData->layout_name = $this->ask("Please specify whether you want to use the app layout or the  baf layout or any other. Example, type app for app layout");
+        }
+
+        if($this->commandData->folder_name==""){
+            $this->commandData->folder_name = $this->ask("Please specify the folder namespace under which you would like things stored. Example Model will be stored in App\Models\{Name you put here}");
+        }
+
         if($this->commandData->main_module==""){
             $this->commandData->main_module = $this->ask("Please specify the main module name in lower case separated by hypen - do not use whitespaces, e.g. bulk-metrics (used for sidebar menu)");
         }
@@ -56,9 +65,7 @@ class BaseCommand extends Command
             $this->commandData->sub_module = $this->ask("Please specify the sub module name - do not use whitespaces, use hyphen as a separator, e.g. bulk-metrics-comparison (used for sidebar menu)");
         }
 
-        if($this->commandData->layout_name==""){
-            $this->commandData->layout_name = $this->ask("Please specify whether you want to use the app layout or the  baf layout or any other. Example, type app for app layout");
-        }
+
 
         if ($this->commandData->fromTable) {
             if (!$this->commandData->tableName) {
@@ -79,6 +86,7 @@ class BaseCommand extends Command
         $this->commandData->addDynamicVariable('$MODULE_NAME$', $this->commandData->module_name);
         $this->commandData->addDynamicVariable('$MODEL_PRIMARY_KEY$', $this->commandData->model_primary_key);
         $this->commandData->addDynamicVariable('$LAYOUT_NAME$', $this->commandData->layout_name);
+        $this->commandData->addDynamicVariable('$FOLDER_NAME$', $this->commandData->folder_name);
         $this->commandData->addDynamicVariable('$NAMESPACE_CONTRACT$', "App\Contracts\Services\\".ucwords($this->commandData->layout_name)."\\".$this->commandData->modelName);
 
 
@@ -143,7 +151,8 @@ class BaseCommand extends Command
             ['mainModuleName', null, InputOption::VALUE_REQUIRED, 'Module Name'],
             ['subModuleName', null, InputOption::VALUE_REQUIRED, 'Sub-module Name'],
             ['primaryKey', null, InputOption::VALUE_REQUIRED, 'Primary Key Field Name'],
-            ['layoutName', null, InputOption::VALUE_REQUIRED, 'Layout name: app or baf or anything else']
+            ['layoutName', null, InputOption::VALUE_REQUIRED, 'Layout name: app or baf or anything else'],
+            ['folderName', null, InputOption::VALUE_REQUIRED, 'Enter the folder under which you would like all file stored']
 
         ];
     }

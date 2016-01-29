@@ -14,7 +14,7 @@
                         <span class="caption-subject font-blue-steel bold uppercase">Record Details</span>
                     </div>
                 </div>
-                <div class="portlet-body">
+                <div class="portlet-body clearfix">
 
                     <div class="form_content margin-bottom-10 no-border">
                         @include('pages.$LAYOUT_NAME$.$MODEL_NAME_PLURAL_CAMEL$.show_fields')

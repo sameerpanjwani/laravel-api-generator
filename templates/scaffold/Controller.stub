@@ -27,6 +27,7 @@ class $MODEL_NAME$Controller extends AbstractBaseController
       	$this->view['chart_data'] = "no";
       	$this->view['chart_remove'] = "no";
       	$this->view['pdf_view'] = 'no';
+      	$this->view['lang_path'] = 'define-lang-path';
       	$this->view['current_page_url'] = route('$MODEL_NAME_PLURAL_CAMEL$.index');
 	}
 	/**

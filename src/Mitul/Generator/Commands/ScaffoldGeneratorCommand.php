@@ -82,7 +82,7 @@ class ScaffoldGeneratorCommand extends BaseCommand
 
                 $append= "";
             }
-            $this->call("make:display-service",['name'=>$append.$this->commandData->folder_name."\\".$this->commandData->modelName,'--main_table_id='.$this->commandData->main_table_id,'--primary_key_field_name='.$this->commandData->model_primary_key]);
+            $this->call("make:crud-display-service",['name'=>$append.$this->commandData->folder_name."\\".$this->commandData->modelName,'--main_table_id='.$this->commandData->main_table_id,'--primary_key_field_name='.$this->commandData->model_primary_key]);
 
         }
     }

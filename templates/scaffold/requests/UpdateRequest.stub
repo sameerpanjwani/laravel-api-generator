@@ -1,4 +1,4 @@
-<?php namespace $NAMESPACE_REQUEST$;
+<?php namespace $NAMESPACE_REQUEST$\$LAYOUT_NAME_UC$\$FOLDER_NAME$;
 
 use $NAMESPACE_REQUEST$\Request;
 use $NAMESPACE_MODEL$\$MODEL_NAME$;

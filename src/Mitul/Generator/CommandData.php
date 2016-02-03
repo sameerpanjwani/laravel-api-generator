@@ -117,9 +117,11 @@ class CommandData
 
         if($this->layout_name!=""){
             $this->dynamicVars['$NAMESPACE_MODEL$']=$this->dynamicVars['$NAMESPACE_MODEL$']."\\".$this->folder_name;
-            $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\Db\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_CONTROLLER$']=$this->dynamicVars['$NAMESPACE_CONTROLLER$']."\\".$this->folder_name;
             //$this->dynamicVars['$NAMESPACE_REQUEST$']=$this->dynamicVars['$NAMESPACE_REQUEST$']."\\".$this->folder_name;
-            $this->dynamicVars['$NAMESPACE_CONTRACT$']="App\Contracts\Services\\".ucwords($this->layout_name)."\\".$this->modelName."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_CONTRACT$']="App\Contracts\Services\\".$this->modelName."\\".$this->folder_name;
+
 
         }
 

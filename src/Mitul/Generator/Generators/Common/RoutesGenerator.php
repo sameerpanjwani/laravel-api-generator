@@ -26,7 +26,7 @@ class RoutesGenerator implements GeneratorProvider
         $this->commandData = $commandData;
         if($this->commandData->layout_name!=""){
             $this->path = Config::get('generator.path_routes', app_path('Http/routes.php'));
-            $this->path = str_replace("routes.php", $this->commandData->layout_name . ".routes.php", $this->path);
+            $this->path = str_replace("routes.php", "Routes\\".$this->commandData->layout_name . ".routes.php", $this->path);
         } else {
             $this->path = Config::get('generator.path_routes', app_path('Http/routes.php'));
         }

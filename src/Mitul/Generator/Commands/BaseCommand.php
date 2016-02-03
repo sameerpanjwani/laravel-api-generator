@@ -78,7 +78,7 @@ class BaseCommand extends Command
             $this->commandData->paginate = 10;
         }
 
-        $this->commandData->initVariables();
+
         $this->commandData->addDynamicVariable('$NAMESPACE_APP$', $this->getLaravel()->getNamespace());
         $this->commandData->addDynamicVariable('$MAIN_TABLE_ID$', $this->commandData->main_table_id);
         $this->commandData->addDynamicVariable('$MAIN_MODULE$', $this->commandData->main_module);
@@ -88,6 +88,8 @@ class BaseCommand extends Command
         $this->commandData->addDynamicVariable('$LAYOUT_NAME$', $this->commandData->layout_name);
         $this->commandData->addDynamicVariable('$FOLDER_NAME$', $this->commandData->folder_name);
         $this->commandData->addDynamicVariable('$NAMESPACE_CONTRACT$', "App\Contracts\Services\\".ucwords($this->commandData->layout_name)."\\".$this->commandData->modelName);
+
+        $this->commandData->initVariables();
 
 
         if ($this->commandData->fieldsFile) {

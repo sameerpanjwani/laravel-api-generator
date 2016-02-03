@@ -118,9 +118,9 @@ class CommandData
         if($this->layout_name!=""){
             $this->dynamicVars['$NAMESPACE_MODEL$']=$this->dynamicVars['$NAMESPACE_MODEL$']."\\".$this->folder_name;
             $this->dynamicVars['$NAMESPACE_REPOSITORY$']=$this->dynamicVars['$NAMESPACE_REPOSITORY$']."\\Db\\".$this->folder_name;
-            $this->dynamicVars['$NAMESPACE_CONTROLLER$']=$this->dynamicVars['$NAMESPACE_CONTROLLER$']."\\".ucwords($this->commandData->layout_name);
+            $this->dynamicVars['$NAMESPACE_CONTROLLER$']=$this->dynamicVars['$NAMESPACE_CONTROLLER$']."\\".ucwords($this->layout_name);
             //$this->dynamicVars['$NAMESPACE_REQUEST$']=$this->dynamicVars['$NAMESPACE_REQUEST$']."\\".$this->folder_name;
-            $this->dynamicVars['$NAMESPACE_CONTRACT$']="App\Contracts\Services\\".ucwords($this->commandData->layout_name)."\\".$this->folder_name;
+            $this->dynamicVars['$NAMESPACE_CONTRACT$']="App\Contracts\Services\\".ucwords($this->layout_name)."\\".$this->folder_name;
 
 
         }

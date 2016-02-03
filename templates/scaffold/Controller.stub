@@ -2,8 +2,8 @@
 
 use $NAMESPACE_CONTRACT$\$MODEL_NAME$DisplayServiceInterface;
 use $NAMESPACE_REQUEST$;
-use $NAMESPACE_REQUEST$\Create$MODEL_NAME$Request;
-use $NAMESPACE_REQUEST$\Update$MODEL_NAME$Request;
+use $NAMESPACE_REQUEST$\$LAYOUT_NAME_UC$\$FOLDER_NAME$\Create$MODEL_NAME$Request;
+use $NAMESPACE_REQUEST$\$LAYOUT_NAME_UC$\$FOLDER_NAME$\Update$MODEL_NAME$Request;
 use $NAMESPACE_REPOSITORY$\$MODEL_NAME$Repository;
 use Flash;
 use App\Http\Controllers\AbstractBaseController;

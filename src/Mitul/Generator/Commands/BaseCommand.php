@@ -88,6 +88,7 @@ class BaseCommand extends Command
         $this->commandData->addDynamicVariable('$MODULE_NAME$', $this->commandData->module_name);
         $this->commandData->addDynamicVariable('$MODEL_PRIMARY_KEY$', $this->commandData->model_primary_key);
         $this->commandData->addDynamicVariable('$LAYOUT_NAME$', $this->commandData->layout_name);
+        $this->commandData->addDynamicVariable('$LAYOUT_NAME_UC$', ucwords($this->commandData->layout_name));
         $this->commandData->addDynamicVariable('$FOLDER_NAME$', $this->commandData->folder_name);
 
 ;

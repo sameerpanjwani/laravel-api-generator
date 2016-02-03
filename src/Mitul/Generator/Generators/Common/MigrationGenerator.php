@@ -45,6 +45,9 @@ class MigrationGenerator implements GeneratorProvider
 
     private function generateFieldsStr()
     {
+        if($this->commandData->model_primary_key!=""){
+            $fieldsStr = "\$table->increments('".$this->commandData->model_primary_key."');\n";
+        }
         $fieldsStr = "\$table->increments('id');\n";
 
         foreach ($this->commandData->inputFields as $field) {
